@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Matches the reader's page backdrop so cold start doesn't flash. -->
+    <color name="window_background">#1A1A1A</color>
+</resources>

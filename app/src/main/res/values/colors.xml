@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Acrobat Reader's identity is its red. The full Material 3 scheme derived
+      from it lives in ui/theme/Color.kt; these few values exist for the window
+      background and launcher icon, which are drawn before Compose starts.
+    -->
+    <color name="kobe_red">#D0271D</color>
+    <color name="kobe_red_dark">#A31A12</color>
+    <color name="window_background">#FFFFFF</color>
+    <color name="ic_launcher_background">#D0271D</color>
+</resources>

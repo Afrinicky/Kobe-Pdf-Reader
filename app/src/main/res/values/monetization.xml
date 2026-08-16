@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Every id below is one of Google's published *test* ids, so a fresh clone runs
+  and shows test ads without an AdMob or Play Console account.
+
+  Before publishing:
+    1. Replace admob_application_id and the three ad unit ids with your own.
+    2. Replace sku_pro_lifetime / sku_pro_yearly with the product ids you create
+       in the Play Console.
+  Shipping the test ids to production breaks the AdMob programme policy, and the
+  test product ids will simply fail to resolve in the store.
+
+  Reference: https://developers.google.com/admob/android/test-ads
+-->
+<resources>
+    <string name="admob_application_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_unit_banner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_unit_interstitial" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_unit_rewarded" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+
+    <string name="sku_pro_lifetime" translatable="false">kobe_pro_lifetime</string>
+    <string name="sku_pro_yearly" translatable="false">kobe_pro_yearly</string>
+</resources>

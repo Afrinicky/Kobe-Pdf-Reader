@@ -66,7 +66,6 @@ fun HomeScreen(
     onOrganize: (String) -> Unit,
     onOpenSettings: () -> Unit,
     onUpgrade: () -> Unit,
-    onResult: (List<String>, String, Long) -> Unit,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()

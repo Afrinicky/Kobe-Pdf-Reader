@@ -36,7 +36,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -66,7 +65,6 @@ fun FilesScreen(
     onOpenDocument: (String) -> Unit,
     onOrganize: (String) -> Unit,
     onOpenSettings: () -> Unit,
-    onResult: (List<String>, String, Long) -> Unit,
     viewModel: FilesViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()

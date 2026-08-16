@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.kobe.reader.core.common.Outcome
 import com.kobe.reader.core.common.runCatchingKobe
 import com.kobe.reader.core.error.KobeError
 import com.kobe.reader.core.file.DocumentStore
@@ -85,7 +86,7 @@ class ResultViewModel @Inject constructor(
         val source = _uiState.value.files.firstOrNull() ?: return
         viewModelScope.launch {
             val outcome = runCatchingKobe { store.exportTo(source, destination) }
-            if (outcome is com.kobe.reader.core.common.Outcome.Failure) {
+            if (outcome is Outcome.Failure) {
                 _uiState.update { it.copy(error = outcome.error) }
             } else {
                 actions.registerExported(destination)

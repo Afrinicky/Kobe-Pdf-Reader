@@ -1,7 +1,6 @@
 package com.kobe.reader.feature.tools
 
 import android.net.Uri
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kobe.reader.core.common.Outcome
@@ -46,7 +45,6 @@ class ToolFlowViewModel @Inject constructor(
     private val store: DocumentStore,
     private val library: LibraryRepository,
     private val premium: PremiumManager,
-    savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(ToolFlowUiState())

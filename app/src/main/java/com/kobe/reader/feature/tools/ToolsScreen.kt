@@ -23,10 +23,7 @@ import com.kobe.reader.ui.components.ToolCard
 /** Every tool, two per row. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ToolsScreen(
-    onOpenTool: (String) -> Unit,
-    onUpgrade: (String?) -> Unit,
-) {
+fun ToolsScreen(onOpenTool: (String) -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(

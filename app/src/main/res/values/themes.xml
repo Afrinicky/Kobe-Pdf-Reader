@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      Compose owns all in-app theming (see ui/theme/Theme.kt). These XML themes
+      exist only for the window background before the first frame, which is what
+      keeps cold start from flashing white.
+    -->
+    <style name="Theme.KobeReader" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+    </style>
+
+    <style name="Theme.KobeReader.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/kobe_red</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.KobeReader</item>
+    </style>
+</resources>

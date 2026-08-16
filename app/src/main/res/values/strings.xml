@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kobe PDF Reader</string>
+    <string name="open_with_kobe">Open with Kobe PDF Reader</string>
+
+    <!-- Home -->
+    <string name="home_title">Kobe PDF Reader</string>
+    <string name="home_subtitle">Your documents stay on your device</string>
+    <string name="section_recent">Recent files</string>
+    <string name="section_quick_tools">Quick tools</string>
+    <string name="see_all">See all</string>
+    <string name="open_pdf">Open a PDF</string>
+    <string name="create_pdf">Create PDF</string>
+
+    <!-- Library -->
+    <string name="library_title">Library</string>
+    <string name="tab_all">All PDFs</string>
+    <string name="tab_recent">Recent</string>
+    <string name="tab_favorites">Favorites</string>
+    <string name="add_folder">Add folder</string>
+    <string name="sort_by">Sort by</string>
+    <string name="sort_name">Name</string>
+    <string name="sort_date">Date</string>
+    <string name="sort_size">Size</string>
+    <string name="search_documents">Search documents</string>
+
+    <!-- Document actions -->
+    <string name="action_open">Open</string>
+    <string name="action_share">Share</string>
+    <string name="action_rename">Rename</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_duplicate">Duplicate</string>
+    <string name="action_save_to">Save a copy to…</string>
+    <string name="action_favorite">Add to favorites</string>
+    <string name="action_unfavorite">Remove from favorites</string>
+    <string name="action_details">Details</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_done">Done</string>
+    <string name="action_save">Save</string>
+    <string name="action_retry">Try again</string>
+    <string name="action_continue">Continue</string>
+    <string name="action_select_files">Select files</string>
+    <string name="action_add_more">Add more</string>
+    <string name="action_remove">Remove</string>
+
+    <!-- Reader -->
+    <string name="reader_page_of">Page %1$d of %2$d</string>
+    <string name="reader_search_hint">Search in document</string>
+    <string name="reader_no_matches">No matches</string>
+    <string name="reader_matches">%1$d of %2$d</string>
+    <string name="reader_jump_to_page">Jump to page</string>
+    <string name="reader_document_info">Document info</string>
+    <string name="reader_password_required">This PDF is password protected</string>
+    <string name="reader_password_hint">Password</string>
+    <string name="reader_password_wrong">That password did not work</string>
+    <string name="reader_unlock">Unlock</string>
+
+    <!-- Tools -->
+    <string name="tools_title">PDF tools</string>
+    <string name="tool_merge">Merge PDF</string>
+    <string name="tool_merge_desc">Combine several PDFs into one</string>
+    <string name="tool_split">Split PDF</string>
+    <string name="tool_split_desc">Divide a PDF into separate files</string>
+    <string name="tool_extract">Extract pages</string>
+    <string name="tool_extract_desc">Save chosen pages as a new PDF</string>
+    <string name="tool_delete_pages">Delete pages</string>
+    <string name="tool_delete_pages_desc">Remove pages you don\'t need</string>
+    <string name="tool_reorder">Organize PDF</string>
+    <string name="tool_reorder_desc">Reorder, rotate and remove pages</string>
+    <string name="tool_compress">Compress PDF</string>
+    <string name="tool_compress_desc">Make a PDF smaller</string>
+    <string name="tool_images_to_pdf">Images → PDF</string>
+    <string name="tool_images_to_pdf_desc">Turn photos into a PDF</string>
+    <string name="tool_pdf_to_images">PDF → Images</string>
+    <string name="tool_pdf_to_images_desc">Save pages as JPG or PNG</string>
+    <string name="tool_rotate">Rotate pages</string>
+    <string name="tool_rotate_desc">Turn pages the right way up</string>
+    <string name="tool_protect">Password protect</string>
+    <string name="tool_protect_desc">Lock a PDF with a password</string>
+
+    <!-- Tool options -->
+    <string name="split_mode">How should we split it?</string>
+    <string name="split_every_page">Every page becomes its own file</string>
+    <string name="split_at_page">Split at a page</string>
+    <string name="split_custom_ranges">Custom ranges</string>
+    <string name="page_ranges_hint">e.g. 1-3, 5, 8-10</string>
+    <string name="page_ranges_invalid">Use page numbers between 1 and %1$d, like 1-3, 5</string>
+    <string name="compression_level">Compression level</string>
+    <string name="compression_low">Light — barely any quality loss</string>
+    <string name="compression_medium">Balanced — recommended</string>
+    <string name="compression_high">Strong — smallest file</string>
+    <string name="image_format">Image format</string>
+    <string name="image_quality">Image quality</string>
+    <string name="page_size">Page size</string>
+    <string name="page_orientation">Orientation</string>
+    <string name="fit_mode">How images fit the page</string>
+    <string name="password_set">Set a password</string>
+    <string name="password_confirm">Confirm password</string>
+    <string name="password_mismatch">The two passwords don\'t match</string>
+    <string name="password_too_short">Use at least 4 characters</string>
+    <string name="allow_printing">Allow printing</string>
+    <string name="allow_copying">Allow copying text</string>
+
+    <!-- Organize -->
+    <string name="organize_title">Organize pages</string>
+    <string name="organize_selected">%1$d selected</string>
+    <string name="organize_select_all">Select all</string>
+    <string name="organize_clear">Clear</string>
+    <string name="organize_rotate_left">Rotate left</string>
+    <string name="organize_rotate_right">Rotate right</string>
+    <string name="organize_extract_selected">Extract selected</string>
+    <string name="organize_delete_selected">Delete selected</string>
+    <string name="organize_cannot_delete_all">A PDF needs at least one page</string>
+    <string name="organize_drag_hint">Hold and drag a page to move it</string>
+
+    <!-- Progress + results -->
+    <string name="working">Working…</string>
+    <string name="working_page">Page %1$d of %2$d</string>
+    <string name="operation_complete">Operation complete</string>
+    <string name="result_saved_to">Saved to %1$s</string>
+    <string name="result_file_size">%1$s</string>
+    <string name="result_size_change">%1$s smaller (%2$d%%)</string>
+    <string name="result_size_grew">No smaller than the original, so we kept the original quality</string>
+    <string name="result_files_created">%1$d files created</string>
+
+    <!-- Errors -->
+    <string name="error_title">Something went wrong</string>
+    <string name="error_corrupted">This PDF appears to be damaged and can\'t be opened.</string>
+    <string name="error_password">This PDF is locked. Enter its password to continue.</string>
+    <string name="error_wrong_password">That password didn\'t work. Check it and try again.</string>
+    <string name="error_not_a_pdf">That file isn\'t a PDF.</string>
+    <string name="error_no_space">There isn\'t enough free space on your device. Free up some room and try again.</string>
+    <string name="error_too_large">This document is too large to process on this device.</string>
+    <string name="error_out_of_memory">This document needs more memory than is available. Try a smaller file or fewer pages at a time.</string>
+    <string name="error_no_permission">Kobe PDF Reader can\'t read that file any more. Open it again from your file picker.</string>
+    <string name="error_file_missing">That file has been moved or deleted.</string>
+    <string name="error_unsupported">This PDF uses a feature Kobe PDF Reader doesn\'t support yet.</string>
+    <string name="error_cancelled">Cancelled.</string>
+    <string name="error_duplicate_name">A file with that name already exists.</string>
+    <string name="error_empty_name">Give the file a name.</string>
+    <string name="error_generic">We couldn\'t finish that. Please try again.</string>
+    <string name="error_nothing_selected">Choose at least one file first.</string>
+    <string name="error_need_two_files">Merging needs at least two PDFs.</string>
+
+    <!-- Empty states -->
+    <string name="empty_library_title">No PDFs yet</string>
+    <string name="empty_library_body">Add a folder or open a PDF and it will show up here.</string>
+    <string name="empty_recent_title">Nothing opened yet</string>
+    <string name="empty_recent_body">Documents you read will appear here.</string>
+    <string name="empty_favorites_title">No favorites yet</string>
+    <string name="empty_favorites_body">Tap the star on any document to keep it close.</string>
+    <string name="empty_search_title">No results</string>
+    <string name="empty_search_body">Try a different search term.</string>
+
+    <!-- Premium -->
+    <string name="pro_name">Kobe PDF Reader Pro</string>
+    <string name="pro_badge">PRO</string>
+    <string name="pro_headline">Everything unlocked, no ads</string>
+    <string name="pro_benefit_no_ads">No adverts, anywhere</string>
+    <string name="pro_benefit_unlimited">Unlimited PDF operations</string>
+    <string name="pro_benefit_compression">Advanced compression</string>
+    <string name="pro_benefit_protect">Password protection</string>
+    <string name="pro_benefit_export">PDF → Images export</string>
+    <string name="pro_benefit_batch">Batch processing</string>
+    <string name="pro_benefit_privacy">Still fully offline. Still no account.</string>
+    <string name="pro_upgrade">Upgrade to Pro</string>
+    <string name="pro_restore">Restore purchase</string>
+    <string name="pro_maybe_later">Maybe later</string>
+    <string name="pro_locked_feature">%1$s is a Pro feature</string>
+    <string name="pro_daily_limit_reached">You\'ve used today\'s %1$d free %2$s operations. They reset tomorrow, or go Pro for unlimited use.</string>
+    <string name="pro_free_left">%1$d free left today</string>
+    <string name="pro_thanks">Thanks for supporting Kobe PDF Reader</string>
+    <string name="pro_unavailable">The store isn\'t reachable right now. Try again later.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_appearance">Appearance</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_system">Follow system</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_dynamic_color">Use wallpaper colors</string>
+    <string name="settings_reading">Reading</string>
+    <string name="settings_keep_screen_on">Keep screen on while reading</string>
+    <string name="settings_remember_position">Remember reading position</string>
+    <string name="settings_scroll_horizontal">Swipe pages sideways</string>
+    <string name="settings_storage">Storage</string>
+    <string name="settings_output_folder">Where new files are saved</string>
+    <string name="settings_clear_recents">Clear recent files</string>
+    <string name="settings_clear_cache">Clear page cache</string>
+    <string name="settings_about">About</string>
+    <string name="settings_privacy">Privacy</string>
+    <string name="settings_privacy_body">Kobe PDF Reader does all PDF work on this device. Your documents are never uploaded, and there is no account to create.</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_licenses">Open source licenses</string>
+
+    <!-- Permissions / storage -->
+    <string name="storage_grant_title">Show your PDFs</string>
+    <string name="storage_grant_body">Pick the folders Kobe PDF Reader may look in. Nothing leaves your device, and you can revoke access any time.</string>
+    <string name="storage_grant_action">Choose a folder</string>
+    <string name="storage_folder_removed">Folder removed</string>
+
+    <!-- Misc -->
+    <string name="pages_count">%1$d pages</string>
+    <string name="page_count_one">1 page</string>
+    <string name="unknown_size">Unknown size</string>
+    <string name="cd_back">Back</string>
+    <string name="cd_more_options">More options</string>
+    <string name="cd_page_thumbnail">Page %1$d</string>
+    <string name="cd_favorite">Favorite</string>
+    <string name="cd_close">Close</string>
+    <string name="cd_search">Search</string>
+    <string name="cd_next_match">Next match</string>
+    <string name="cd_previous_match">Previous match</string>
+
+    <!-- Default output names -->
+    <string name="default_name_merged">Merged</string>
+    <string name="default_name_split">Split</string>
+    <string name="default_name_extracted">Extracted</string>
+    <string name="default_name_compressed">Compressed</string>
+    <string name="default_name_images_to_pdf">Images_to_PDF</string>
+    <string name="default_name_protected">Protected</string>
+    <string name="default_name_organized">Organized</string>
+</resources>

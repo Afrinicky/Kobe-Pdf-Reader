@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Output written by PDF tools before the user picks a permanent home. -->
+    <files-path
+        name="kobe_output"
+        path="output/" />
+    <!-- Temporary working copies (compression scratch, extracted images). -->
+    <cache-path
+        name="kobe_cache"
+        path="share/" />
+    <external-files-path
+        name="kobe_external"
+        path="Documents/" />
+</paths>

@@ -56,7 +56,6 @@ fun KobeNavHost(
                 onOrganize = navigator::toOrganize,
                 onOpenSettings = navigator::toSettings,
                 onUpgrade = { navigator.toPaywall(null) },
-                onResult = navigator::toResult,
             )
         }
 
@@ -65,15 +64,11 @@ fun KobeNavHost(
                 onOpenDocument = navigator::toReader,
                 onOrganize = navigator::toOrganize,
                 onOpenSettings = navigator::toSettings,
-                onResult = navigator::toResult,
             )
         }
 
         composable<ToolsRoute> {
-            ToolsScreen(
-                onOpenTool = navigator::toTool,
-                onUpgrade = { feature -> navigator.toPaywall(feature) },
-            )
+            ToolsScreen(onOpenTool = navigator::toTool)
         }
 
         composable<ToolRoute>(
@@ -86,7 +81,6 @@ fun KobeNavHost(
                 onBack = navigator::back,
                 onDone = navigator::toResult,
                 onUpgrade = { feature -> navigator.toPaywall(feature) },
-                activityProvider = activityProvider,
             )
         }
 

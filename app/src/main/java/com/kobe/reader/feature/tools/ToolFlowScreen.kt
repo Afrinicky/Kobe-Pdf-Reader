@@ -1,10 +1,8 @@
 package com.kobe.reader.feature.tools
 
-import android.app.Activity
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -49,6 +47,7 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.kobe.reader.R
 import com.kobe.reader.core.common.asFileSize
+import com.kobe.reader.core.pdf.PageSelection
 import com.kobe.reader.pdf.CompressionLevel
 import com.kobe.reader.pdf.ImageFormat
 import com.kobe.reader.ui.components.ErrorDialog
@@ -71,7 +70,6 @@ fun ToolFlowScreen(
     onBack: () -> Unit,
     onDone: (List<String>, String, Long) -> Unit,
     onUpgrade: (String?) -> Unit,
-    activityProvider: () -> Activity?,
     viewModel: ToolFlowViewModel = hiltViewModel(),
 ) {
     val tool = Tool.fromKey(toolKey)
@@ -297,8 +295,7 @@ private fun SplitOptions(state: ToolFlowUiState, viewModel: ToolFlowViewModel) {
 @Composable
 private fun PageRangeField(state: ToolFlowUiState, viewModel: ToolFlowViewModel) {
     val invalid = state.pageRangeText.isNotBlank() &&
-        com.kobe.reader.core.pdf.PageSelection
-            .parse(state.pageRangeText, state.sourcePageCount) == null
+        PageSelection.parse(state.pageRangeText, state.sourcePageCount) == null
 
     OutlinedTextField(
         value = state.pageRangeText,

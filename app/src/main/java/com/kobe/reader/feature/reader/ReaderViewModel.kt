@@ -2,7 +2,6 @@ package com.kobe.reader.feature.reader
 
 import android.graphics.Bitmap
 import android.net.Uri
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kobe.reader.core.common.Dispatcher
@@ -57,7 +56,6 @@ class ReaderViewModel @Inject constructor(
     private val library: LibraryRepository,
     private val cache: PageBitmapCache,
     @param:Dispatcher(KobeDispatcher.Default) private val cpu: CoroutineDispatcher,
-    savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(ReaderUiState())

@@ -52,6 +52,20 @@ sealed class KobeError(@get:StringRes val messageRes: Int) {
     /** The user cleared the filename field. */
     data object EmptyName : KobeError(R.string.error_empty_name)
 
+    // --- Input validation ---------------------------------------------------
+    // These never come from an exception; tools raise them before starting work
+    // so the user gets a specific sentence instead of a generic failure.
+
+    data object NothingSelected : KobeError(R.string.error_nothing_selected)
+
+    data object NeedTwoFiles : KobeError(R.string.error_need_two_files)
+
+    data object InvalidPageRange : KobeError(R.string.error_invalid_page_range)
+
+    data object PasswordTooShort : KobeError(R.string.password_too_short)
+
+    data object PasswordMismatch : KobeError(R.string.password_mismatch)
+
     /**
      * Anything we haven't classified. [cause] is kept for logcat only - it is
      * never shown to the user.

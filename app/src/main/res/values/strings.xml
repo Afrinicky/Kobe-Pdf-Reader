@@ -221,4 +221,8 @@
     <string name="default_name_images_to_pdf">Images_to_PDF</string>
     <string name="default_name_protected">Protected</string>
     <string name="default_name_organized">Organized</string>
+    <!-- Bottom navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_files">Files</string>
+    <string name="nav_tools">Tools</string>
 </resources>

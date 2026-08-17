@@ -16,11 +16,7 @@ android {
     }
 
     defaultConfig {
-        // Play Store identity for Nickland Sales and Services. This value is
-        // PERMANENT once the app is first published - it can never be changed
-        // for this listing. If the business owns a domain, prefer its reverse
-        // form (e.g. com.<yourdomain>.kobepdfreader) before the first upload.
-        applicationId = "com.nicklandsales.kobepdfreader"
+        applicationId = "com.kobe.reader"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
@@ -28,8 +24,8 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        // Kobe PDF Reader ships no native code of its own, but PdfBox-Android
-        // and the platform PDF renderer are used on every ABI Play supports.
+        // Kobe Reader ships no native code of its own, but PdfBox-Android and
+        // the platform PDF renderer are used on every ABI Play supports.
         vectorDrawables.useSupportLibrary = true
     }
 

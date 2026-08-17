@@ -3,9 +3,6 @@
 An offline-first Android PDF reader and toolkit. Every document operation runs
 on the device — no account, no server, no upload.
 
-© 2026 Nickland Sales and Services. All rights reserved. Kobe PDF Reader is the
-property of Nickland Sales and Services.
-
 > **Status:** V1 source is complete. It has **not been compiled**, because the
 > environment it was written in cannot reach `dl.google.com` (Google's Maven
 > repository and the Android SDK download host are both blocked by the network
@@ -178,17 +175,8 @@ Two smaller deferrals worth naming:
   roughly covers its page. That is exact for full-page scans — the dominant case
   — and under-compresses small logos, which is the safe direction to be wrong in.
 
-## Ownership and licence
+## Licence
 
-Kobe PDF Reader is proprietary software owned by **Nickland Sales and Services**
-— see [LICENSE](LICENSE). All rights reserved.
-
-**Third-party open-source libraries** used at runtime carry their own licences,
-which legally require a short acknowledgement *of the library* (not of the app's
-authorship) somewhere in the shipped app — an "Open source licences" entry in
-Settings is the usual place. This is licence compliance for the libraries, not a
-credit to any co-author of Kobe PDF Reader. The libraries are: PdfBox-Android
-(Apache 2.0), which pulls in BouncyCastle (MIT/Bouncy Castle Licence), and the
-AndroidX / Jetpack Compose stack (Apache 2.0). Removing these acknowledgements
-would breach those licences; the only way to drop them entirely is to stop using
-those libraries.
+Not yet chosen. Note that PdfBox-Android is Apache 2.0 and pulls in BouncyCastle
+(MIT), both of which need attribution in the app's licence screen before
+release.

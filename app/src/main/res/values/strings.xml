@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Kobe PDF Reader</string>
     <string name="open_with_kobe">Open with Kobe PDF Reader</string>
+    <string name="merge_pdf">Merge with Kobe PDF Reader</string>
 
     <!-- Home -->
     <string name="home_title">Kobe PDF Reader</string>

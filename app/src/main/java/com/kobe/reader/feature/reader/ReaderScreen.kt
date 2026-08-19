@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package com.kobe.reader.feature.reader
 
 import android.net.Uri

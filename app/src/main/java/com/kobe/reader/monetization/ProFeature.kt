@@ -3,6 +3,12 @@ package com.kobe.reader.monetization
 import androidx.annotation.StringRes
 import com.kobe.reader.R
 
+// File-level, not companion members: enum entries are constructed before an
+// enum's companion object is initialised, so an entry cannot read a companion
+// constant. These sentinels are referenced by the entries below.
+private const val LOCKED = 0
+private const val UNLIMITED = -1
+
 /**
  * The single list of what Pro unlocks.
  *
@@ -36,11 +42,6 @@ enum class ProFeature(
 
     val isProOnly: Boolean get() = dailyFreeLimit == LOCKED
     val isUnlimited: Boolean get() = dailyFreeLimit == UNLIMITED
-
-    companion object {
-        const val LOCKED = 0
-        const val UNLIMITED = -1
-    }
 }
 
 /** Answer to "may the user run this right now?". */

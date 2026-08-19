@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.MutablePreferences
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
@@ -69,9 +70,10 @@ class SettingsRepository @Inject constructor(
         preferences[Keys.GRANTED_FOLDERS] = (preferences[Keys.GRANTED_FOLDERS] ?: emptySet()) - uri
     }
 
-    private suspend inline fun edit(crossinline block: (Preferences) -> Unit) {
+    private suspend inline fun edit(crossinline block: (MutablePreferences) -> Unit) {
         // A failed write is not worth crashing over; the setting simply doesn't
-        // stick and the user can try again.
+        // stick and the user can try again. The lambda receives MutablePreferences
+        // (the only Preferences type with a `set` operator).
         runCatching { dataStore.edit { block(it) } }
     }
 

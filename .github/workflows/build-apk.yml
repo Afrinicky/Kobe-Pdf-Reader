@@ -1,0 +1,73 @@
+name: Build APK
+
+# Builds an installable debug APK on GitHub's runners (which, unlike the
+# authoring environment, can reach Google's Maven repo and the Android SDK) and
+# publishes it as a downloadable release asset.
+#
+# Trigger it automatically on every push to the development branch, or by hand
+# from the Actions tab (Run workflow).
+
+on:
+  push:
+    branches:
+      - claude/kobe-reader-pdf-app-x92tst
+  workflow_dispatch:
+
+# Needed so the job can create/update the "debug-latest" release.
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the source
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up the Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Make the Gradle wrapper executable
+        run: chmod +x ./gradlew
+
+      - name: Build the debug APK
+        run: ./gradlew :app:assembleDebug --stacktrace
+
+      - name: Run the unit tests
+        run: ./gradlew testDebugUnitTest --stacktrace
+        continue-on-error: true
+
+      - name: Rename the APK
+        run: |
+          mkdir -p artifacts
+          cp app/build/outputs/apk/debug/app-debug.apk \
+             artifacts/KobePDFReader-debug.apk
+
+      # Downloadable from the run's summary page (requires a GitHub login).
+      - name: Upload the APK as a workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: KobePDFReader-debug-apk
+          path: artifacts/KobePDFReader-debug.apk
+          if-no-files-found: error
+
+      # Also attach it to a stable pre-release so there is a permanent
+      # download link that does not change from build to build.
+      - name: Publish to the debug-latest release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: debug-latest
+          name: Kobe PDF Reader — latest debug build
+          prerelease: true
+          body: >
+            Unsigned debug build for internal testing by Nickland Sales and
+            Services. Not for distribution. Enable "install unknown apps" on the
+            device to sideload it.
+          files: artifacts/KobePDFReader-debug.apk

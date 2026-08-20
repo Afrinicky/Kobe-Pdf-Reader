@@ -83,6 +83,18 @@
             </intent-filter>
         </activity>
 
+        <!--
+          Diagnostic crash screen. Runs in its own process so it can be launched
+          from the dying main process and still render, and uses a plain platform
+          theme so it does not depend on anything the app might have broken.
+          Debug diagnostics only.
+        -->
+        <activity
+            android:name=".core.diagnostics.CrashActivity"
+            android:exported="false"
+            android:process=":crash"
+            android:theme="@android:style/Theme.Material.Light" />
+
         <!-- Shares generated files without exposing raw filesystem paths. -->
         <provider
             android:name="androidx.core.content.FileProvider"

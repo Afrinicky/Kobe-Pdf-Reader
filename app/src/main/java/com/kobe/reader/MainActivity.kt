@@ -10,9 +10,11 @@ import androidx.compose.runtime.getValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import com.kobe.reader.core.diagnostics.CrashReporter
 import com.kobe.reader.data.prefs.KobeSettings
 import com.kobe.reader.data.prefs.SettingsRepository
 import com.kobe.reader.monetization.ads.AdsController
+import com.kobe.reader.ui.CrashReportScreen
 import com.kobe.reader.ui.KobeApp
 import com.kobe.reader.ui.theme.KobeTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,6 +44,26 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
+        // If the previous run crashed, show the captured stack trace instead of
+        // the app, with a Share button, so a tester without a computer can send
+        // it to us. Dismissing clears it and returns to the app on next launch.
+        val crash = CrashReporter.consume(this)
+        if (crash != null) {
+            setContent {
+                KobeTheme {
+                    CrashReportScreen(
+                        report = crash,
+                        onShare = { shareText(crash) },
+                        onDismiss = {
+                            CrashReporter.clear(this)
+                            recreate()
+                        },
+                    )
+                }
+            }
+            return
+        }
+
         val settings = settingsRepository.settings.stateIn(
             scope = lifecycleScope,
             started = SharingStarted.Eagerly,
@@ -52,7 +74,9 @@ class MainActivity : ComponentActivity() {
         splash.setKeepOnScreenCondition { settings.value == null }
 
         handleIntent(intent)
-        ads.prepare()
+        // The ad SDK reaches out to Google Play Services at startup; never let a
+        // failure there crash the app before the user sees a single screen.
+        runCatching { ads.prepare() }
 
         setContent {
             val current by settings.collectAsStateWithLifecycle()
@@ -97,6 +121,15 @@ class MainActivity : ComponentActivity() {
             )
         }
         pendingDocument.value = uri
+    }
+
+    private fun shareText(text: String) {
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_SUBJECT, "Kobe PDF Reader crash report")
+            putExtra(Intent.EXTRA_TEXT, text)
+        }
+        runCatching { startActivity(Intent.createChooser(intent, "Share crash report")) }
     }
 
     private fun Intent.getParcelableExtraCompat(name: String): Uri? =

@@ -109,6 +109,19 @@
         <meta-data
             android:name="com.google.android.gms.ads.flag.OPTIMIZE_INITIALIZATION"
             android:value="true" />
+
+        <!--
+          Disable the ad SDK's automatic ContentProvider initialisation. That
+          provider runs before Application.onCreate and, if Play Services is
+          unavailable or the app id is rejected, can crash the app before any UI
+          appears. We initialise the SDK ourselves, lazily and guarded, only
+          when a free-tier ad is actually needed (see AdMobAdsController).
+        -->
+        <provider
+            android:name="com.google.android.gms.ads.MobileAdsInitProvider"
+            android:authorities="${applicationId}.mobileadsinitprovider"
+            android:exported="false"
+            tools:node="remove" />
         <meta-data
             android:name="com.google.android.gms.ads.flag.OPTIMIZE_AD_LOADING"
             android:value="true" />

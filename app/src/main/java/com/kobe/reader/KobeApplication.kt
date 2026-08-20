@@ -2,9 +2,12 @@ package com.kobe.reader
 
 import android.app.Application
 import android.content.ComponentCallbacks2
+import android.content.Context
 import android.content.res.Configuration
+import android.util.Log
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration as WorkConfiguration
+import com.kobe.reader.core.diagnostics.CrashReporter
 import com.kobe.reader.pdf.render.PageBitmapCache
 import com.tom_roush.pdfbox.android.PDFBoxResourceLoader
 import dagger.hilt.android.HiltAndroidApp
@@ -30,12 +33,22 @@ class KobeApplication : Application(), WorkConfiguration.Provider {
             .setMinimumLoggingLevel(if (BuildConfig.DEBUG) android.util.Log.DEBUG else android.util.Log.ERROR)
             .build()
 
+    override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(base)
+        // Install the crash catcher as early as possible - before content
+        // providers (which include third-party auto-initializers) run - so even
+        // a pre-onCreate startup crash is captured for the next launch.
+        CrashReporter.install(this)
+    }
+
     override fun onCreate() {
         super.onCreate()
         // PdfBox ships its font metrics and glyph lists as Android assets and
         // cannot find them without this. Skipping it produces a confusing
-        // "Could not find AFM resource" the first time a PDF is written.
-        PDFBoxResourceLoader.init(applicationContext)
+        // "Could not find AFM resource" the first time a PDF is written. Guarded
+        // so a failure here never takes the whole app down on launch.
+        runCatching { PDFBoxResourceLoader.init(applicationContext) }
+            .onFailure { Log.w("KobeApplication", "PdfBox init failed", it) }
     }
 
     override fun onTrimMemory(level: Int) {
